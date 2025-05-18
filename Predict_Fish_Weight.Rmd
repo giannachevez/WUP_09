@@ -149,3 +149,7 @@ The data suggests that Model 2, which includes L3 and W, is the most effective.
 The best two-regressor model is also Model 2, which consists of the L3 and W variables.
 
 ## Final Summary Statements
+
+As observed in the data analysis, both perch and roach share the same best model and best two-regressor model: Model 2, which includes the L3 and W variables. This consistency suggests that adding more predictors does not significantly improve model performance for these species. Because the simpler and more complex models yield the same result, there is no need to conduct an ANOVA test to compare them or determine statistical significance, as no meaningful difference exists in model fit.
+
+In contrast, the results for pike show a different pattern. The best overall model for pike is Model 5, which includes all five predictors: L1, L2, L3, H, and W. However, the best two-regressor model is Model 2, which only includes L1 and L3. Since these two models are not the same, it is necessary to run an ANOVA test to determine whether the additional predictors in Model 5 significantly improve the model compared to the simpler Model 2. The resulting p-value from this comparison is 8.679e–10, which is far below the typical significance level of 0.05. This indicates that the improvement in model performance from including all five predictors is statistically significant and not due to random chance. Therefore, for pike, Model 5 provides a significantly better fit than the simpler Model 2.
