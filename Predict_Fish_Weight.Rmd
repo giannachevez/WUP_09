@@ -81,9 +81,42 @@ The data also suggests that the two best-performing regression models are the H-
 
 ## Pike
 
+```{r}
+library(leaps)
+regsubsets.out <-
+  regsubsets(Weight ~.,
+                             data=Pike,
+                             nbest=1,
+                             force.in=NULL,force.out=NULL,
+                             method="exhaustive")
+summary.out<-summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+
+```
+
+```{r}
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend = "bottom",main="adjustedR^2")
+
+
+```
+
 ### Best Models
 
+The data indicates that the most effective model is the 5-element L1–L2–L3–H–W model.
+
 ### Best Two regressor model
+
+The best two regressor model is the L1–L3 model. This means that the overall best model differs from the best two regressor model. Therefore, it is necessary to run an ANOVA test to compare them properly.
+
+```{r}
+model5 <- lm(Weight~ . ,data=Pike)
+summary.lm(model5)
+model2=lm(Weight~ .  -Length2-Height-Width, data=Pike)
+model3=lm(Weight~ .  -Length2-Height-Width, data=Pike)
+anova(model5,model2)
+
+```
 
 ## Roach
 
